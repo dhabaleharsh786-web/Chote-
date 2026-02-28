@@ -3,35 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Chote ❤️</title>
+    <title>Sorry Chote! ❤️</title>
     <style>
-        body { background-color: #ffe4e1; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; text-align: center; overflow: hidden; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 300px; border: 2px solid #ff6b6b; position: relative; z-index: 10; }
-        h1 { color: #ff6b6b; font-size: 22px; }
-        p { color: #555; font-size: 18px; line-height: 1.4; }
-        .btn { background: #ff6b6b; color: white; padding: 12px 24px; border: none; border-radius: 25px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold; }
-        @keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
-        .heart { position: fixed; color: #ff6b6b; font-size: 20px; animation: fall 3s linear infinite; z-index: 1; }
+        body { background-color: #fff0f3; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        .container { text-align: center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 90%; max-width: 400px; border: 3px solid #ff4d6d; }
+        
+        /* Animation for Uthak-Baithak */
+        .boy-box { font-size: 80px; animation: squat 1.5s infinite; margin: 20px 0; }
+        @keyframes squat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(40px) scaleY(0.8); }
+        }
+
+        h1 { color: #ff4d6d; font-size: 24px; }
+        p { color: #590d22; font-size: 18px; font-weight: bold; }
+        
+        .btn-group { margin-top: 20px; }
+        .btn { background: #ff4d6d; color: white; padding: 12px 25px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; text-decoration: none; display: inline-block; margin: 5px; transition: 0.3s; }
+        .btn-no { background: #adb5bd; }
+        .btn:hover { transform: scale(1.1); }
+
+        .footer-msg { font-size: 14px; color: #888; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div style="font-size: 60px; margin-bottom: 10px;">🐷💖</div>
-        <h1>Sorry Na Chote!</h1>
-        <p>Oye meri pyaari <b>Chote</b>... Maan ja na ab! <br><br> Maana ki main thoda pagal hoon, par tera favourite <b>Suvar</b> toh main hi hoon na? 🐽</p>
-        <a href="#" class="btn" onclick="alert('I Love You Chote! ❤️ Ab smile karo!')">Maan Gayi? Click Karo!</a>
+
+<div class="container">
+    <div style="font-size: 40px;">👸🏻</div>
+    <p>Oye meri <b>Chote</b>!</p>
+    
+    <div class="boy-box">🙇‍♂️</div>
+    
+    <h1>Sorry Na Yaar!</h1>
+    <p>Dekh tera <b>Anu Gadha</b> <br> kaan pakad ke uthak-baithak kar raha hai aur tere pair pad raha hai! 🐾</p>
+    
+    <div class="btn-group">
+        <p>Ab bata, Maan Gayi Kya?</p>
+        <button class="btn" onclick="celebrate()">Haan, Maan Gayi! ❤️</button>
+        <button class="btn btn-no" id="noBtn" onmouseover="moveButton()">Nahi! 😤</button>
     </div>
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 3000);
-        }
-        setInterval(createHeart, 300);
-    </script>
+
+    <div class="footer-msg">Tera favourite Gadha: Anu 🫏</div>
+</div>
+
+<script>
+    // Agar wo "Nahi" par click karne jaye toh button bhag jayega
+    function moveButton() {
+        const btn = document.getElementById('noBtn');
+        const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+        btn.style.position = 'absolute';
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+    }
+
+    function celebrate() {
+        alert("Yayyy! I Love You Chote! ❤️ Ab se Anu Gadha kabhi pareshan nahi karega (shayad)!");
+        document.body.style.backgroundColor = "#ffb3c1";
+        document.querySelector('.container').innerHTML = "<h1>❤️ Jhappi! ❤️</h1><p>Ab jaldi se call karo apne Anu ko!</p><div style='font-size:100px;'>👩‍❤️‍👨</div>";
+    }
+</script>
+
 </body>
 </html>
